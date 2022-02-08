@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">testingapp</string>
+    <string name="slogan">Кушайте постоянно: дома, на работе, в офисе и метро! Наше приложение поможет вам заказать еду куда-угодно</string>
+    <string name="register">Регистрация</string>
+    <string name="auth">Авторизация</string>
+    <string name="hintPhone">Номер телефона</string>
+    <string name="hintPassword">Пароль</string>
+    <string name="authUser">Войти в кабинет</string>
 </resources>
