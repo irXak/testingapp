@@ -18,7 +18,7 @@ import com.makitryuk.testingapp.Models.User;
 
 public class Signin extends AppCompatActivity {
 
-    private Button btnSingIn; // переменная ссылающаяся на кнопку SignIn
+    private Button btnSignIn; // переменная ссылающаяся на кнопку SignIn
     private EditText editPhone, editPassword; // переменные ссылающиеся на поле ввода номера телефона и пароля
 
 
@@ -27,7 +27,7 @@ public class Signin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin);
 //-------------------ссылки для переменных--------------------------
-        btnSingIn = findViewById(R.id.btnSignIn);
+        btnSignIn = findViewById(R.id.btnSignIn);
         editPhone = findViewById(R.id.editTextPhone);
         editPassword= findViewById(R.id.editTextPassword);
 //----------------------END-----------------------------------------
@@ -35,7 +35,7 @@ public class Signin extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance(); // метод возвращающий подключение к бд
         final DatabaseReference table = database.getReference("User"); // а после подключения указываем с какой таблицей будем работать
 
-        btnSingIn.setOnClickListener(new View.OnClickListener() {  // вешаем на кнопку обработчик событий ( по нажатию на кнопку "войти в кабинет" произойдет подключение к верной таблице)
+        btnSignIn.setOnClickListener(new View.OnClickListener() {  // вешаем на кнопку обработчик событий ( по нажатию на кнопку "войти в кабинет" произойдет подключение к верной таблице)
             @Override
             public void onClick(View view) {
                 table.addValueEventListener(new ValueEventListener() { // обращаемся к таблице и через обработчик событий проверяем смогли ли мы подключиться к таблице или нет

@@ -6,4 +6,5 @@
     <string name="hintPhone">Номер телефона</string>
     <string name="hintPassword">Пароль</string>
     <string name="authUser">Войти в кабинет</string>
+    <string name="hintName">Введите имя</string>
 </resources>
