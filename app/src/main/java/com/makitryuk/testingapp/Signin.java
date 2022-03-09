@@ -3,6 +3,7 @@ package com.makitryuk.testingapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -45,6 +46,8 @@ public class Signin extends AppCompatActivity {
                             User user = snapshot.child(editPhone.getText().toString()).getValue(User.class); // если мы нашли пользователя по номеру телефона, то сполучаем польностью весь обьект со всеми записями и преобразовываем к классу User
                             if (user.getPass().equals(editPassword.getText().toString())) { // через метод equals проверяем введенный пользователем пароль с паролем что лежит в базе
                                 Toast.makeText(Signin.this, "Успешно авторизован", Toast.LENGTH_LONG).show(); // если проверка на пароль вернула true
+                                Intent intent = new Intent(Signin.this, FoodPage.class);
+                                startActivity(intent);
                             } else {
                                 Toast.makeText(Signin.this, "Не успешно авторизован", Toast.LENGTH_LONG).show(); // если проверка на пароль вернула false
                             }
