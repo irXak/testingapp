@@ -16,6 +16,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+//        String activeUser = Signin.getDefaults("phone", MainActivity.this); // проверяем авторизован ли пользователь и если он авторизован то показывать страничку фуд_пейдж
+//
+//        if (!activeUser.equals("")) {  // создадим условие: если эктив юзер не будет равен пустой строке, то перебрасываем пользователя на другую страницу
+//            Intent intent = new Intent(MainActivity.this, FoodPage.class);
+//            startActivity(intent);
+//        }
+
         btnSignIn = findViewById(R.id.btnSignIn);
         btnSignUp = findViewById(R.id.btnSignUp);
 

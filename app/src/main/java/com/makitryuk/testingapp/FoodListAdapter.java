@@ -2,12 +2,14 @@ package com.makitryuk.testingapp;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,6 +23,7 @@ public class FoodListAdapter extends ArrayAdapter<Category> { // мы все б�
     private LayoutInflater layoutInflater; // обьект для работы с xml файлом
     private List<Category> categories;
     private  int layoutListRow;
+    private Context context;
 
 
     public FoodListAdapter(@NonNull Context context, int resource, @NonNull List<Category> objects) { // создаем конструктор принимающий три параметра
@@ -33,6 +36,7 @@ public class FoodListAdapter extends ArrayAdapter<Category> { // мы все б�
 
         categories = objects; // (1-й параметр конструктора) внутри этой переменной мы будем хранить все те обьекты что будут служить для наполнения списка
         layoutListRow = resource; // (2-й параметр конструктора) в этой переменной мы будем хранить id того дизайна который нам будет нужен для создания самого списка
+        this.context = context; // внутри конструктора внутрь этого обьекта мы будем устанавливать тот параметр который получаем при создании обьекта на основе этого класса
 
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE); /*  мы указываем переданный контекст и затем указываем режим
          в котором инфлейтер будет работать а дальше указываем сам сервис работы...  */
@@ -61,6 +65,15 @@ public class FoodListAdapter extends ArrayAdapter<Category> { // мы все б�
                 //для этого мы создаем дополнительную переменную которая будет искать картинку по названию
                 int id = getContext().getResources().getIdentifier("drawable/" + category.getImage(), null, getContext().getPackageName()); // заменяем атрибут src
                 photo.setImageResource(id); //передаем полученный id
+
+                photo.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        FoodDetail.ID = position + 1; // обращаясь к индексу элемента на который нажали мы будем заносить позицию этого элемента в переменную ID (т.к. по индексу элементы считываются с нуля то к индексуц прибавляем единицу для корректности отображения
+                        context.startActivity(new Intent(context, FoodDetail.class)); //по нажатию на любую категорию из списка мы будем переадресовывать пользователя на страничку с описанием выбранной категории
+                        //Toast.makeText(getContext(), foofName.getText().toString(), Toast.LENGTH_LONG).show(); // получаем во всплывающем сообщении по нажатию на любую категорию название этой категории
+                    }
+                });
             }
         }
 
