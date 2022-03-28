@@ -82,6 +82,7 @@ public class Signin extends AppCompatActivity {
 
     public static String getDefaults(String key, Context context) { // функция позволяющая получить параметры из постоянного хранилища - SharedPreference
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        Toast.makeText(context.getApplicationContext(), sharedPreferences.getString(key,null), Toast.LENGTH_LONG).show();
         return sharedPreferences.getString(key, null);
     }
 

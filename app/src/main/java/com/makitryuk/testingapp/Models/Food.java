@@ -4,6 +4,9 @@ public class Food {
 
     private String price, full_text;
 
+public Food(){
+
+}
     public Food(String price, String full_text) {
         this.price = price;
         this.full_text = full_text;

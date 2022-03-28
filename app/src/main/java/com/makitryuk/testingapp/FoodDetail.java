@@ -73,10 +73,10 @@ public class FoodDetail extends AppCompatActivity {
         table_food.child(String.valueOf(ID)).addValueEventListener(new ValueEventListener() { // мы находим дочерний обьект у которого ключ будет точно таким же как и значение которое помещено внутрь переменной ID
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) { // метод который срабатывает если в таблице произошли какие-либо изменения
-                //Food foodItem = snapshot.getValue(Food.class);  // по пока неизвестной причине именно  в этой строку получаемое значение из бд ломает приложение
+                Food foodItem = snapshot.getValue(Food.class);  // по пока неизвестной причине именно  в этой строку получаемое значение из бд ломает приложение
 
-               // price.setText(foodItem.getPrice() + "рублей"); // цена
-                //foodFullName.setText(foodItem.getFull_text()); // описание
+               price.setText(foodItem.getPrice() + "рублей"); // цена
+                foodFullName.setText(foodItem.getFull_text()); // описание
             }
 
             @Override
