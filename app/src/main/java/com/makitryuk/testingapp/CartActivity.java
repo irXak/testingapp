@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -20,6 +21,7 @@ import com.makitryuk.testingapp.Helpers.JSONHelper;
 import com.makitryuk.testingapp.Models.Cart;
 import com.makitryuk.testingapp.Models.Order;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CartActivity extends AppCompatActivity {
@@ -65,8 +67,21 @@ public class CartActivity extends AppCompatActivity {
 
                         Long tsLong = System.currentTimeMillis() / 1000; //получили колличесво миллисекунд с определенной даты (1977 год вроде), поделили на тысячу чтоб получать в все в секундах
 
-                        table.child(tsLong.toString()).setValue(order); // получившееся время является ключем к нашей записи  и получаем значения из обьекта ордер
-                        Toast.makeText(CartActivity.this, "Заказ сформирован", Toast.LENGTH_LONG).show();
+                        table.child(tsLong.toString()).setValue(order).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+
+                                List<Cart> cartList = new ArrayList<>();
+                                JSONHelper.exportToJSON(CartActivity.this, cartList);
+
+                                CartItemsAdapter arrayAdapter = new CartItemsAdapter(CartActivity.this, R.layout.cart_item, cartList);
+                                listView.setAdapter(arrayAdapter);
+
+                                Toast.makeText(CartActivity.this, "Заказ сформирован", Toast.LENGTH_LONG).show();
+
+                            }
+                        }); // получившееся время является ключем к нашей записи  и получаем значения из обьекта ордер
+
                     }
 
                     @Override
