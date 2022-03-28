@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/background"
     android:layout_height="match_parent"
     tools:context=".FoodDetail">
+
+    <LinearLayout
+        android:id="@+id/mainLinear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
 
     <ImageView
         android:id="@+id/mainFoto"
@@ -52,16 +57,38 @@
         android:padding="10dp"
         android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/btnaddToCart"
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="15dp"
-        android:padding="10dp"
-        android:text="@string/addToCart"
-        android:textColor="@android:color/white" />
+        android:orientation="horizontal"
+        android:layout_below="@+id/mainLinear"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="50dp">
 
-</LinearLayout>
+        <Button
+            android:id="@+id/btnAddToCart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:onClick="btnAddToCart"
+            android:padding="10dp"
+            android:text="@string/addToCart"
+            android:textColor="@android:color/white"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btnGoToCart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:onClick="btnAddToCart"
+            android:padding="10dp"
+            android:text="@string/btnGoToCart"
+            android:textColor="@android:color/white"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

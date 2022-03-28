@@ -1,4 +1,4 @@
-package com.makitryuk.testingapp;
+package com.makitryuk.testingapp.Helpers;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -14,7 +14,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.makitryuk.testingapp.FoodDetail;
 import com.makitryuk.testingapp.Models.Category;
+import com.makitryuk.testingapp.R;
 
 import java.util.List;
 

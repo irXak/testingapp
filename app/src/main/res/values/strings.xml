@@ -8,4 +8,6 @@
     <string name="authUser">Войти в кабинет</string>
     <string name="hintName">Введите имя</string>
     <string name="addToCart">Добавить в корзину</string>
+    <string name="btnGoToCart">Перейти в корзину</string>
+    <string name="textCart">Корзина</string>
 </resources>
