@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     android:orientation="vertical"
     tools:context=".CartActivity">
 
@@ -21,6 +22,14 @@
         android:id="@+id/shopping_cart"
         android:layout_marginHorizontal="15dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-         />
+        android:layout_height="400dp" />
+
+    <Button
+        android:id="@+id/btnMakeOrder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="@string/btnMakeOrder"
+        android:textColor="@android:color/white"
+        android:layout_margin="40dp"/>
 </LinearLayout>
