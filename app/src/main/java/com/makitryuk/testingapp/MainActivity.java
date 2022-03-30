@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
         String activeUser = Signin.getDefaults("phone", MainActivity.this); // проверяем авторизован ли пользователь и если он авторизован то показывать страничку фуд_пейдж
 
-        if (!activeUser.equals("")) {  // создадим условие: если эктив юзер не будет равен пустой строке, то перебрасываем пользователя на другую страницу
+        if (activeUser != null && activeUser.equals("")) {  // создадим условие: если эктив юзер не будет равен пустой строке, то перебрасываем пользователя на другую страницу
             Intent intent = new Intent(MainActivity.this, FoodPage.class);
             startActivity(intent);
         }
