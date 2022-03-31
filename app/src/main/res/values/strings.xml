@@ -11,4 +11,5 @@
     <string name="btnGoToCart">Перейти в корзину</string>
     <string name="textCart">Корзина</string>
     <string name="btnMakeOrder">Оформить заказ</string>
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544~3347511713</string>
 </resources>
