@@ -3,31 +3,28 @@ package com.makitryuk.testingapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
-import com.makitryuk.testingapp.Models.Music;
+import com.makitryuk.testingapp.Models.MyThread;
 
 public class MainActivity extends AppCompatActivity {
 
     //private static final String TAG = "MainActivity";    //рекламный тэг
 
     private Button btnSignIn, btnSignUp;
+    private static final String TAG = "shaman";
+    Button startButton, stopButton;
+    MyThread myThread;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        new Music();
+        startThreadRoutine();
 
         String activeUser = Signin.getDefaults("phone", MainActivity.this); // проверяем авторизован ли пользователь и если он авторизован то показывать страничку фуд_пейдж
 
@@ -61,4 +58,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void startThreadRoutine(){
+        Log.d(TAG, ">>>> startThreadRoutine called...");
+        this.myThread = new MyThread(this);
+        this.myThread.start();
+    }
+
+    public void onDestroy() {
+        super.onDestroy();
+        this.myThread.stop();
+    }
 }
+
